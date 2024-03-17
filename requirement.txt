@@ -4,4 +4,4 @@ seaborn
 scikit-learn 
 pylint
 jinja2
-
+joblib

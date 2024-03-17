@@ -16,7 +16,7 @@ def predict_grade(student_data):
     print('----------- predict_grade() ---------')
     print(student_data)
     # Load the trained model (you can replace this with your actual model loading code)
-    model = joblib.load('model/model.joblib')
+    model = joblib.load('app/model/model.joblib')
 
     # Predict the grade for the new student data
     prepared_data =prepare_data(student_data)
