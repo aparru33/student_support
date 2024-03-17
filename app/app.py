@@ -31,7 +31,7 @@ st.title("Welcome to Help Student")
  
 if "token" not in st.session_state:
     with st.form(key="login_form"):
-        st.info('user test : try user a with password pwd1')
+        st.info('user test : try user "test" with password "pwd1"')
         _user_euserName = st.text_input("Enter your user name")
         _user_password = st.text_input("Enter your password", type="password")
         submit_button = st.form_submit_button(label="Login")
