@@ -6,7 +6,7 @@ import os
 
 users = load_data(os.path.join(get_path(),'cunselors.csv'))
 schools = load_data(os.path.join(get_path(),'schools.csv'))
-students = load_data(os.path.join(get_path(),'data/students.csv'))
+students = load_data(os.path.join(get_path(),'students.csv'))
 
 def login(userName:str, password:str):
     """
