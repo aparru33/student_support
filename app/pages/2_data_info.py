@@ -1,19 +1,19 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pandas as pd
-from tools import load_data, verify_token_exist
+import os
+from tools import load_data, verify_token_exist, get_path
 
 verify_token_exist()
 
-data = load_data('data/example_data.csv', index_col="StudentID")
+data = load_data(os.path.join(get_path(),'example_data.csv'), index_col="StudentID")
 data = data.drop(["FirstName", "FamilyName"], axis=1)
 data['family_ed'] = data['Fedu'] + data['Medu']
 
 
 # Add a title to the app
 st.title('Student Performance Analysis Summary')
-st.error(" !!!!! Work to do: \
+st.info(" !!!!! Work to do: \
           better define features to the user or add legend. \
          In some case use more suited chart \
          (stack bar with cat. grade in horiz.axis or plotly distplot) !!!")

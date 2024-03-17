@@ -2,6 +2,8 @@ import streamlit as st
 import messages as msg
 import pandas as pd
 
+DATA_PATH = 'app/data/'
+
 def verify_token_exist():
     if "token" not in st.session_state:
         st.error(msg.NOT_AUTH)
@@ -10,6 +12,9 @@ def verify_token_exist():
 @st.cache_data
 def load_data(file_path,sep = ';', encoding = 'utf-8', index_col=False):
     return pd.read_csv(file_path, sep=sep, encoding=encoding, index_col=index_col)
+
+def get_path():
+     return DATA_PATH
 
 def prepare_data(data):
     model_data = data.drop(['FirstName', 'FamilyName','PredictedGrade', 'SchoolID', 'StudentID'], axis=1)

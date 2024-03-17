@@ -1,13 +1,15 @@
 import streamlit as st
 import pandas as pd
 import joblib
-from tools import verify_token_exist, load_data, prepare_data
+from tools import verify_token_exist, load_data, prepare_data, get_path
+import os
 from messages import GOOD_PREDICT, BAD_PREDICT
 verify_token_exist()
 
 
 # Load the existing student data from the CSV file
-data_path = 'data/students.csv'
+DATA_FILE = 'students.csv'
+data_path=os.path.join(get_path(),DATA_FILE)
 students_df = load_data(data_path)
 # Function to predict grades and store student data
 def predict_grade(student_data):

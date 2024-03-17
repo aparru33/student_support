@@ -1,12 +1,12 @@
 import streamlit as st
 from messages import ERROR_LOGIN
-from tools import load_data
+from tools import load_data, get_path
+import os
 # Load CSV files as dataframes
 
-users = load_data('data/cunselors.csv')
-schools = load_data('data/schools.csv')
-students = load_data('data/students.csv')
-
+users = load_data(os.path.join(get_path(),'cunselors.csv'))
+schools = load_data(os.path.join(get_path(),'schools.csv'))
+students = load_data(os.path.join(get_path(),'data/students.csv'))
 
 def login(userName:str, password:str):
     """
@@ -31,6 +31,7 @@ st.title("Welcome to Help Student")
  
 if "token" not in st.session_state:
     with st.form(key="login_form"):
+        st.info('user test : try user a with password pwd1')
         _user_euserName = st.text_input("Enter your user name")
         _user_password = st.text_input("Enter your password", type="password")
         submit_button = st.form_submit_button(label="Login")
